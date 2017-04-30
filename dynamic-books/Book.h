@@ -2,25 +2,50 @@
 #include <iostream>
 #include <string>
 using namespace std;
-class book
+class Book
 {
+private:
+	string AuthorFirstName;
+	string AuthorName;
+	string BookTitle;
+	int Number;
+	int Year;
+	int BookId;
+	//bool Wypozyczona;
+	//int IdPersonWyp;
 public:
-	string author_first_name;
-	string author_name;
-	string book_title;
-	int number;
-	int year;
-	int book_id;
-	bool Wypozyczona;
-	int IdPersonWyp;
-
-	book() : number(0), year(0), book_id(0), Wypozyczona(false), IdPersonWyp(-1)
+	static int bAmount;
+	Book(string, string, string, int, int, int);
+	void setAuthorFirstName(string);
+	void setAuthorName(string);
+	void setBookTitle(string);
+	void setNumber(int);
+	void setYear(int);
+	void setBookId(int);
+	void addBook(Book& bk);
+	void showBook(Book& bk);
+	string getAuthorFirstName();
+	string getAuthorName();
+	string getBookTitle();
+	int getNumber();
+	int getYear();
+	int getBookId();
+	Book() : Number(0), Year(0), BookId(0) //Wypozyczona(false), IdPersonWyp(-1)
 	{
+		string AuthorFirstName = "";
+		string AuthorName = "";
+		string Booktitle = "";
+		int Number = 0;
+		int Year = 0;
+		int BookId = 0;
 	};
-	~book()
+	virtual ~Book()
 	{
+		--Book::bAmount;
 	};
-	void add_books(book&, int b_amount);
+	friend std::ostream& operator<<(std::ostream& ostr, const Book& bk);
+	friend std::istream& operator>>(std::istream& is, Book& bk);
+	/*void add_books(Book&, int b_amount);
 	void add_books(int b_amount);
-	void show_books(int b_amount);
+	void show_books(int b_amount);*/
 };

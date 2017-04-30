@@ -1,25 +1,98 @@
 #include "Book.h"
+#include "Person.h"
+#include <vector>
+#include <iostream>
+using namespace std;
 
-void book::add_books( int b_amount)
+Book::Book(string AuthorFirstName, string AuthorName, string BookTitle, int Number, int Year, int BookId)
 {
-	cout << "Podaj imie autora ksiazki: " << endl;
-	cin >> author_first_name;
-	cout << "Podaj nazwisko autora ksiazki: " << endl;
-	cin >> author_name;
-	cout << "Podaj tytul ksizaki: " << endl;
-	cin >> book_title;
-	cout << "Podaj rok wydania ksziaki: " << endl;
-	cin >> year;
-	cout << "Podaj numer wydania ksziaki: " << endl;
-	cin >> number;
-	number = b_amount;
+	this->AuthorFirstName = AuthorFirstName;
+	this->AuthorName = AuthorName;
+	this->BookTitle = BookTitle;
+	this->Number = Number;
+	this->Year = Year;
+	this->BookId = BookId;
+	++Book::bAmount;
 }
 
-void book::show_books(int b_amount)
+void Book::setAuthorFirstName(string AuthorFirstName)
 {
-	cout << "Imie autora ksizaki: " << author_first_name << endl;
-	cout << "Nazwisko autora ksiazki: " << author_name<< endl;
-	cout << "Tytul ksiazki: " << book_title << endl;
-	cout << "Rok wydania: " << year << endl;
-	cout << "Numer wydania :" << number << endl;
+	this->AuthorFirstName = AuthorFirstName;
 }
+void Book::setAuthorName(string AuthorName)
+{
+	this->AuthorName = AuthorName;
+}
+void Book::setBookTitle(string BookTitle)
+{
+	this->BookTitle = BookTitle;
+}
+void Book::setNumber(int Number)
+{
+	this->Number = Number;
+}
+void Book::setYear (int Year)
+{
+	this->Year = Year;
+}
+void Book::setBookId (int BookId)
+{
+	this->BookId = BookId;
+}
+void Book::addBook(Book& bk)
+{
+	vector <Book> bk;
+	for(int i=0; i<10; i++)
+	//istream operator>>(const istream& cin, const vector<Book>& bk);
+	cin >> bk;
+}
+void Book::showBook(Book& bk)
+{
+	for (int i = 0; i < bk.size(); i++)
+		cout << bk << endl;
+}
+string Book::getAuthorFirstName()
+{
+	return AuthorFirstName;
+}
+string Book::getAuthorName()
+{
+	return AuthorName;
+}
+string Book::getBookTitle()
+{
+	return BookTitle;
+}
+int Book::getNumber()
+{
+	return Number;
+}
+int Book::getYear()
+{
+	return Year;
+}
+int Book::getBookId()
+{
+	return BookId;
+}
+std::ostream& operator<<(std::ostream& ostr, const Book& bk)
+{
+	ostr << bk.AuthorFirstName << "/n";
+	ostr << bk.AuthorName << "/n";
+	ostr << bk.BookTitle << "/n";
+	ostr << bk.Number << "/n";
+	ostr << bk.Year << "/n";
+	ostr << bk.BookId << "/n";
+	return ostr;
+}
+std::istream& operator>>(std::istream& is, Book& bk)
+{
+	is >> bk.AuthorFirstName;
+	is >> bk.AuthorName;
+	is >> bk.BookTitle;
+	is >> bk.Number;
+	is >> bk.Year;
+	is >> bk.BookId;
+	return is;
+}
+
