@@ -39,17 +39,38 @@ void Book::setBookId (int BookId)
 {
 	this->BookId = BookId;
 }
-void Book::addBook(Book& bk)
+/*void Book::addBook(Book& bk)
 {
-	vector <Book> bk;
-	for(int i=0; i<10; i++)
+	
+	Book data;
+	for (int i = 0; i < 10; i++)
+		cin >> data;
+	bk1.push_back(data);
 	//istream operator>>(const istream& cin, const vector<Book>& bk);
-	cin >> bk;
-}
-void Book::showBook(Book& bk)
+
+}*/
+/*void Book::showBook(vector<Book> bk1)
+{	
+	for (int i = 0; i < 10; i++)
+		cout << bk1[i];
+	//Book data;
+	//vector <Book> ::iterator bk0 = bk.begin();
+	//for (; bk0 != bk.end(); bk0++)
+		//cout << *bk0;
+}*/
+void Book::AttachBook(Book bk, Person& ppl, Book& bk1, Book ppl1)
 {
-	for (int i = 0; i < bk.size(); i++)
-		cout << bk << endl;
+	//przypisanie
+	int numberppl, numberbk;
+	for (int i=0; i<10; i++)
+	{
+		cout << "Podaj numer id ksiazki i osoby" << endl;
+		cin >> numberppl;
+		cin >> numberbk;
+		if (numberppl == PersonId && numberbk == BookId)
+			cout << ppl1[i];
+			cout << bk1[i];
+	}
 }
 string Book::getAuthorFirstName()
 {

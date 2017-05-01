@@ -1,6 +1,9 @@
 #include "Person.h"
+#include <vector>
+#include <iostream>
 
-Person::Person(string FirstName, string Name, int Age, int PersonId)
+
+Person::Person(string FirstName, string Name, int Age, int PersonId): pAmount(0)
 {
 	this->FirstName = FirstName;
 	this->Name = Name;
@@ -26,6 +29,40 @@ void Person::setPersonId(int)
 	this->PersonId = PersonId; 
 }
 
+void Person::addBook()
+{
+
+	Book data;
+	for (int i = 0; i < 10; i++)
+		cin >> data;
+	bk1.push_back(data);
+	//istream operator>>(const istream& cin, const vector<Book>& bk);
+
+}
+
+void Person::showBook()
+{
+	for (int i = 0; i < 10; i++)
+		cout << bk1[i];
+	//Book data;
+	//vector <Book> ::iterator bk0 = bk.begin();
+	//for (; bk0 != bk.end(); bk0++)
+	//cout << *bk0;
+}
+
+void Person::addPerson(Person& ppl)
+{
+	vector <Person> ppl1;
+	Person info;
+	for (int i = 0; i < 10; i++)
+		cin >> info;
+	ppl1.push_back(info);
+}
+void Person::showPerson(vector <Person> ppl1)
+{
+	for (int i = 0; i < 10; i++)
+		cout << ppl1[i];
+}
 string Person::getFirstName()
 {
 	return FirstName;
@@ -38,20 +75,10 @@ int Person::getAge()
 {
 	return Age;
 }
-
 int Person::getPersonId()
 {
 	return PersonId;
 }
-
-/*void Person::show_p_amount(Person &, int p_amount)
-{
-}
-
-void Person::attach_book_to_Person(Person &, book &, int Person_id, int book_id, int Person_id1, int book_id1)
-{
-}*/
-
 std::ostream& operator<<(std::ostream& ostr, const Person& ppl)
 {
 	ostr << ppl.FirstName << "/n";

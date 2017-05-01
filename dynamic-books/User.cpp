@@ -1,13 +1,19 @@
 #include "User.h"
 #include "Book.h"
-#include "Person.h"
-#include <windows.h>
-#include <conio.h>
+//#include "Person.h"
+//#include <windows.h>
+//#include <conio.h>
 #include <iostream>
 using namespace std;
-Book bk;
-Person ppl;
-void Menu()
+//Book bk;
+//Person ppl;
+void User::dziedziczna()
+{
+	cout << "Ta klasa dziedziczy z klasy User" << endl;
+	cout << "W przyszlosci klsa Admin i Client beda mia³y inne mo¿liwosci w programie, np dodawanie i usuwanie osob" << endl;
+	cout << "Zabrak³o mi czasu" << endl;
+}
+/*void Menu()
 {
 	auto pozycja = 1;
 	char znak;
@@ -84,9 +90,9 @@ void Menu()
 	if (pozycja == 2) cout << bk;
 	if (pozycja == 3) cin >> ppl;
 	if (pozycja == 4) cin >> bk;
-	/*if (pozycja == 5);
+	/*if (pozycja == 5); 
 	if (pozycja == 6);
 	if (pozycja == 7);
 	if (pozycja == 8);
-	if (pozycja == 9);*/
-}
+	if (pozycja == 9);
+}*/

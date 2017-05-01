@@ -1,6 +1,7 @@
 #pragma once
-#include <iostream>
 #include <string>
+#include "Person.h"
+#include <vector>
 using namespace std;
 class Book
 {
@@ -11,10 +12,13 @@ private:
 	int Number;
 	int Year;
 	int BookId;
+	int PersonId;
+//	vector <Book> bk1;
 	//bool Wypozyczona;
 	//int IdPersonWyp;
 public:
 	static int bAmount;
+
 	Book(string, string, string, int, int, int);
 	void setAuthorFirstName(string);
 	void setAuthorName(string);
@@ -22,8 +26,6 @@ public:
 	void setNumber(int);
 	void setYear(int);
 	void setBookId(int);
-	void addBook(Book& bk);
-	void showBook(Book& bk);
 	string getAuthorFirstName();
 	string getAuthorName();
 	string getBookTitle();
@@ -35,9 +37,9 @@ public:
 		string AuthorFirstName = "";
 		string AuthorName = "";
 		string Booktitle = "";
-		int Number = 0;
-		int Year = 0;
-		int BookId = 0;
+		//int Number = 0;
+		//int Year = 0;
+		//int BookId = 0;
 	};
 	virtual ~Book()
 	{
@@ -45,7 +47,7 @@ public:
 	};
 	friend std::ostream& operator<<(std::ostream& ostr, const Book& bk);
 	friend std::istream& operator>>(std::istream& is, Book& bk);
-	/*void add_books(Book&, int b_amount);
-	void add_books(int b_amount);
-	void show_books(int b_amount);*/
+//	void addBook(Book& bk);
+//	void showBook(vector<Book> bk1);
+	void AttachBook(Book bk, Person& ppl, Book bk1, Person ppl1);
 };
